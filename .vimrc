@@ -7,8 +7,8 @@ set background=dark
 set showcmd
 "  Show matching brackets
 set showmatch
-"  Do case insensitive matching
-set ignorecase
+"  Do case insensitive matching (smart)
+set smartcase
 "  Incremental search
 set incsearch
 "  Automatically save before commands like :next and :make
@@ -17,11 +17,15 @@ set autowrite
 set clipboard=
 "  More tabs for `vim -p *`
 set tabpagemax=100
+"  Minimum lines to keep above and below cursor
+set scrolloff=3
 "  Show line and row number
 set ruler
+"  Spell check
+set spell
 "  Highlight HACK
 match Error /HACK/
-"  Search for helpfiles in ~/.vim/doc
+"  Search for help files in ~/.vim/doc
 helptags ~/.vim/doc
 "  Jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -52,7 +56,7 @@ autocmd FileType php compiler php
 
 
 
-" Global movement and inserting maps
+" Global move and insert maps
 "  <ALT>-up/down moves through paragraphs
 map [1;3A	{
 imap [1;3A	<esc>{i
@@ -79,8 +83,15 @@ imap {} {}<left>
 "   Press <CTRL>-{ to get indented {}
 imap  {<CR>}<ESC>O
 map  i{<CR>}<ESC><up>
+" Stupid shift key fixes
+cmap W w
+cmap WQ wq
+cmap wQ wq
+cmap Q q
+cmap Q q
+cmap Tabe Tabe
 
-" Specific movement and inserting maps
+" Specific move and insert maps
 "  PERL
 "   <CTRL>-d inserts $self->{logger}->dumper($res);
 autocmd FileType perl map <C-d>		i$self->{logger}->dumper($res);<esc>bb

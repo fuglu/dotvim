@@ -118,8 +118,11 @@ autocmd FileType java map <C-d>		iSystem.out.println(res);<esc>bb
 autocmd FileType java imap <C-d>	System.out.println(res);<esc>bb<insert>
 
 
-
 " Command maps
+"  Spell
+"   F7 find suggestions for bad words
+map <F7>	z=
+
 "  TComment
 "   F8 toggles comments on and off
 map <F8>	gcc

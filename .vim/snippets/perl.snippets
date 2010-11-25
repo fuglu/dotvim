@@ -110,3 +110,38 @@ snippet cl
 snippet slurp
 	my $${1:var};
 	{ local $/ = undef; local *FILE; open FILE, "<${2:file}"; $$1 = <FILE>; close FILE }${3}
+
+# Function documentation
+snippet pod
+	=head1 ${1:name}
+
+	=head2 DESCRIPTION
+
+	${2:description}
+
+	=head2 AUTHOR
+
+	${3:author}
+
+	=head2 INPUT
+
+	=over
+
+	=item B<${4:var}>
+
+	${5:description}
+
+	=back
+
+	=head2 OUTPUT
+
+	=over
+
+	=item B<${6:var}>
+
+	${7:description}
+
+	=back
+
+	=cut
+

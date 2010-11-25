@@ -38,7 +38,7 @@ filetype plugin on
 
 " CTAGS
 "  Tag locations
-set tags=.tags,tags,~/.tags,~/.tags_java,~/.tags_perl
+set tags=.tags,tags,~/.tags
 "  Jump to tag on <CTRL>-j
 map <C-j>	zz
 "  Jump to next tag on <CTRL>-k

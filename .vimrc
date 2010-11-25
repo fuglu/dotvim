@@ -7,10 +7,10 @@ set background=dark
 set showcmd
 "  Show matching brackets
 set showmatch
-"  Do case insensitive matching (smart)
-set smartcase
 "  Incremental search
 set incsearch
+"  Do case insensitive matching
+set ignorecase
 "  Automatically save before commands like :next and :make
 set autowrite
 "  Disable clipboard

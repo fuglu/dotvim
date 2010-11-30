@@ -143,9 +143,6 @@ imap <F10>	<esc>:! git commit -a<CR>
 "   <SHIFT>-F10 commits this file
 map <S-F10>	:! git commit %<CR>
 imap <S-F10>	<esc>:! git commit %<CR>
-"   <CTRL><SHIFT>-F10 diffs all files
-map <C-S-F10>	:! git diff<CR>
-imap <C-S-F10>	<esc>:! git diff<CR>
 "   F11 pulls all branches
 map <F11>	:! git pull<CR>
 imap <F11>	<esc>:! git pull<CR>

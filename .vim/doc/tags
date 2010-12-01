@@ -154,6 +154,12 @@ g:tcommentMapLeader2	tComment.txt	/*g:tcommentMapLeader2*
 g:tcommentMapLeaderOp1	tComment.txt	/*g:tcommentMapLeaderOp1*
 g:tcommentMapLeaderOp2	tComment.txt	/*g:tcommentMapLeaderOp2*
 g:tcommentOpModeExtra	tComment.txt	/*g:tcommentOpModeExtra*
+git-vim	git-vim.txt	/*git-vim*
+git-vim-commands	git-vim.txt	/*git-vim-commands*
+git-vim-contents	git-vim.txt	/*git-vim-contents*
+git-vim-keymaps	git-vim.txt	/*git-vim-keymaps*
+git-vim-license	git-vim.txt	/*git-vim-license*
+git-vim.txt	git-vim.txt	/*git-vim.txt*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 i_CTRL-R_<Tab>	snipMate.txt	/*i_CTRL-R_<Tab>*

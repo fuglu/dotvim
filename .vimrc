@@ -137,6 +137,9 @@ map <S-F9>	:make<CR>
 imap <S-F9>	<esc>:make<CR>
 
 "  GIT
+"   <CTRL><SHIFT>-F9 triggers GitBlame
+map <C-S-F9>	:GitBlame<CR>
+imap <C-S-F9>	<esc>:GitBlame<CR>
 "   F10 commits everything
 map <F10>	:! git commit -a<CR>
 imap <F10>	<esc>:! git commit -a<CR>

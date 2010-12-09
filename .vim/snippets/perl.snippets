@@ -13,9 +13,11 @@ snippet .
 snippet sub
 	sub ${1:function_name}
 	{
-		my ($self, $args) = @_;
+		my ($self, $args_ref) = @_;
 
 		${2:#body ...}
+
+		return 1;
 	}
 # Conditional
 snippet if

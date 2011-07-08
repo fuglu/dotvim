@@ -21,10 +21,19 @@ set tabpagemax=100
 set scrolloff=3
 "  Show line and row number
 set ruler
+"  Show wildmenu
+set wildmenu
 "  Spell check
 set spell
 "  Highlight HACK
 match Error /HACK/
+"  Highlight space errors
+match Debug /\s\+$/
+"  Highlight tabs
+set list                   " enable display of tabs and eol
+set listchars=tab:»·       " show a tab as »··· (digraphs: »=^K>>, ·=^K~.)
+set listchars+=trail:·
+set listchars+=extends:>,precedes:<
 "  Search for help files in ~/.vim/doc
 helptags ~/.vim/doc
 "  Jump to the last position when reopening a file
@@ -45,6 +54,8 @@ map <C-j>	zz
 map <C-k>	:tnext<CR>
 "  Jump to previous tag on <CTRL>-l
 map <C-l>	<C-T>
+"  Show full tag
+set showfulltag
 
 
 
@@ -83,13 +94,6 @@ imap {} {}<left>
 "   Press <CTRL>-{ to get indented {}
 imap  {<CR>}<ESC>O
 map  i{<CR>}<ESC><up>
-" Stupid shift key fixes
-cmap W w
-cmap WQ wq
-cmap wQ wq
-cmap Q q
-cmap Q q
-cmap Tabe Tabe
 
 " Specific move and insert maps
 "  PERL

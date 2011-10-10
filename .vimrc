@@ -34,6 +34,13 @@ set list                   " enable display of tabs and eol
 set listchars=tab:»·       " show a tab as »··· (digraphs: »=^K>>, ·=^K~.)
 set listchars+=trail:·
 set listchars+=extends:>,precedes:<
+"  Show long lines
+if version >= 703
+	set colorcolumn=121
+else
+	highlight OverLength ctermbg=red
+	autocmd BufWinEnter,BufRead * match OverLength /\%121v.\+/
+endif
 "  Search for help files in ~/.vim/doc
 helptags ~/.vim/doc
 "  Jump to the last position when reopening a file

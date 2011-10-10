@@ -127,6 +127,10 @@ autocmd FileType php imap <C-Down>	<esc>/function <CR>zzi
 "   <CTRL>-d inserts System.out.println(res);
 autocmd FileType java map <C-d>		iSystem.out.println(res);<esc>bb
 autocmd FileType java imap <C-d>	System.out.println(res);<esc>bb<insert>
+"  C
+"   <CTRL>-d inserts printf("%i\n", i)
+autocmd FileType c map <C-d>	iprintf("%i\n", i);<esc>bb
+autocmd FileType c imap <C-d>	printf("%i\n", i);<esc>bb<insert>
 
 
 " Command maps

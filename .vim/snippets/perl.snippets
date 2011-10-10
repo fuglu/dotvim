@@ -20,23 +20,17 @@ snippet sub
 # Conditional
 snippet if
 	if (${1}) {
-		${2:# body...}
 	}
 # Conditional if..else
 snippet ife
 	if (${1}) {
-		${2:# body...}
 	} else {
-		${3:# else...}
 	}
 # Conditional if..elsif..else
 snippet ifee
 	if (${1}) {
-		${2:# body...}
 	} elsif (${3}) {
-		${4:# elsif...}
 	} else {
-		${5:# else...}
 	}
 # Conditional One-line
 snippet xif
@@ -44,7 +38,6 @@ snippet xif
 # Unless conditional
 snippet unless
 	unless (${1}) {
-		${2:# body...}
 	}
 # Unless conditional One-line
 snippet xunless
@@ -52,20 +45,16 @@ snippet xunless
 # Try/Except
 snippet eval
 	eval {
-		${1:# do something risky...}
 	};
 	if ($@) {
-		${2:# handle failure...}
 	}
 # While Loop
 snippet wh
 	while (${1}) {
-		${2:# body...}
 	}
 # While Loop
 snippet while
 	while (${1}) {
-		${2:# body...}
 	}
 # While Loop One-line
 snippet xwh
@@ -73,12 +62,10 @@ snippet xwh
 # While Each Loop
 snippet each
 	while (my ($key, $value) = each(%${1})) {
-		${2:# body...}
 	}
 # For Loop
 snippet for
 	foreach my $${1:x} (@${2:array}) {
-		${3:# body...}
 	}
 #	for (my $${2:var} = 0; $$2 < ${1:count}; $$2${3:++}) {
 #		${4:# body...}
@@ -86,12 +73,10 @@ snippet for
 # Foreach Loop
 snippet fore
 	foreach my $${1:x} (@${2:array}) {
-		${3:# body...}
 	}
 # Foreach Loop
 snippet foreach
 	foreach my $${1:x} (@${2:array}) {
-		${3:# body...}
 	}
 # Foreach Loop One-line
 snippet xfore

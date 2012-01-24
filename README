@@ -1,1 +1,4 @@
 fuglu's vim files
+
+* Use "git submodule update --init" to init submodules
+* Use "git submodule update" to update submodules

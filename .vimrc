@@ -1,3 +1,7 @@
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
 "
 " Mixed vim stuff
 "  Set highlighting
@@ -42,7 +46,6 @@ else
 	autocmd BufWinEnter,BufRead * match OverLength /\%121v.\+/
 endif
 "  Search for help files in ~/.vim/doc
-helptags ~/.vim/doc
 "  Jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal g'\"" | endif
@@ -133,6 +136,7 @@ autocmd FileType c map <C-d>	iprintf("%i\n", i);<esc>bb
 autocmd FileType c imap <C-d>	printf("%i\n", i);<esc>bb<insert>
 
 
+
 " Command maps
 "  Spell
 "   F7 find suggestions for bad words
@@ -144,29 +148,14 @@ map <F8>	gcc
 vmap <F8>	gc
 
 "  MAKE
-"   F9 triggers make install
-map <F9>	:!make install<CR>
-imap <F9>	<esc>:! make install<CR>
-"   <SHIFT>-F9 triggers make check for this file
-map <S-F9>	:make<CR>
-imap <S-F9>	<esc>:make<CR>
+"   F9 triggers make
+map <F9>	:make<CR>
+imap <F9>	<esc>:make<CR>
 
 "  GIT
 "   <CTRL><SHIFT>-F9 triggers GitBlame
-map <C-S-F9>	:GitBlame<CR>
-imap <C-S-F9>	<esc>:GitBlame<CR>
-"   F10 commits everything
-map <F10>	:! git commit -a<CR>
-imap <F10>	<esc>:! git commit -a<CR>
-"   <SHIFT>-F10 commits this file
-map <S-F10>	:! git commit %<CR>
-imap <S-F10>	<esc>:! git commit %<CR>
-"   F11 pulls all branches
-map <F11>	:! git pull<CR>
-imap <F11>	<esc>:! git pull<CR>
-"   <SHIFT>-F11 pushes all branches
-map <S-F11>	:! git push<CR>
-imap <S-F11>	<esc>:! git push<CR>
+map <C-S-F9>	:Gblame<CR>
+imap <C-S-F9>	<esc>:Gblame<CR>
 
 "  NERDTree
 "   F12 opens NERDTree
@@ -183,4 +172,3 @@ imap <S-F12>	<esc>\be
 "   <CTRL><SHIFT>-F12 shows paste register
 map <C-S-F12>	:reg<CR>
 imap <C-S-F12>	<esc>:reg<CR>
-

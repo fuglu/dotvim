@@ -2,173 +2,141 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-"
-" Mixed vim stuff
-"  Set highlighting
-syntax on
-set background=dark
-"  Show (partial) command in status line
-set showcmd
-"  Show matching brackets
-set showmatch
-"  Incremental search
-set incsearch
-"  Do case insensitive matching
-set ignorecase
-"  Automatically save before commands like :next and :make
-set autowrite
-"  Disable clipboard
-set clipboard=
-"  More tabs for `vim -p *`
-set tabpagemax=100
-"  Minimum lines to keep above and below cursor
-set scrolloff=3
-"  Show line and row number
-set ruler
-"  Show wildmenu
-set wildmenu
-"  Spell check
-set spell
-"  Highlight HACK
-match Error /HACK/
-"  Highlight space errors
-match Debug /\s\+$/
-"  Highlight tabs
-set list                   " enable display of tabs and eol
-set listchars=tab:»·       " show a tab as »··· (digraphs: »=^K>>, ·=^K~.)
-set listchars+=trail:·
-set listchars+=extends:>,precedes:<
-"  Show long lines
-if version >= 703
-	set colorcolumn=121
-else
-	highlight OverLength ctermbg=red
-	autocmd BufWinEnter,BufRead * match OverLength /\%121v.\+/
-endif
-"  Search for help files in ~/.vim/doc
-"  Jump to the last position when reopening a file
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal g'\"" | endif
-"  Load specific indentation and plugin rules
+" Load specific indentation and plugin rules
 filetype indent on
 filetype plugin on
 
+" Jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal g'\"" | endif
 
+" Set highlighting
+syntax on
+set background=dark
 
-" CTAGS
-"  Tag locations
-set tags=.tags,tags,~/.tags
-"  Jump to tag on <CTRL>-j
-map <C-j>	zz
-"  Jump to next tag on <CTRL>-k
-map <C-k>	:tnext<CR>
-"  Jump to previous tag on <CTRL>-l
-map <C-l>	<C-T>
-"  Show full tag
-set showfulltag
+" Show (partial) command in status line
+set showcmd
 
+" Show matching brackets
+set showmatch
 
+" Incremental search
+set incsearch
 
-" COMPILER
-"  PERL
-autocmd FileType perl compiler perl
-"  PHP
-autocmd FileType php compiler php
+" Do case insensitive matching
+set ignorecase
 
+" Automatically save before commands like :next and :make
+set autowrite
 
+" More tabs for `vim -p *`
+set tabpagemax=100
 
-" Global move and insert maps
-"  <ALT>-up/down moves through paragraphs
-map [1;3A	{
-imap [1;3A	<esc>{i
-map [1;3B	}
-imap [1;3B	<esc>}i
-"  <ALT>-left/right increases/decrease vsplit windows
-map [1;3C	<C-W>>
-imap [1;3C	<C-W>>
-map [1;3D	<C-W><
-imap [1;3D	<C-W><
-"  Enclosing
-"   Position cursor between '' after typing ''
+" Minimum lines to keep above and below cursor
+set scrolloff=3
+
+" Show line and row number
+set ruler
+
+" Show wildmenu
+set wildmenu
+
+" Spell check
+set spell
+
+" Highlight tabs
+set list
+set listchars=tab:»·
+set listchars+=trail:·
+set listchars+=extends:>,precedes:<
+
+" Highlight space errors
+match Debug /\s\+$/
+
+" CTags file locations
+set tags=./.tags;,./tags;
+" Jump to tag on <CTRL>-j
+map <C-j> zz
+" Jump to next tag on <CTRL>-k
+map <C-k> :tnext<CR>
+" Jump to previous tag on <CTRL>-l
+map <C-l> <C-T>
+
+" Position cursor between '' after typing ''
 imap '' ''<left>
-"   Position cursor between "" after typing ""
+" Position cursor between "" after typing ""
 imap "" ""<left>
-"   Position cursor between <> after typing <>
+" Position cursor between <> after typing <>
 imap <> <><left>
-"   Position cursor between () after typing ()
+" Position cursor between () after typing ()
 imap () ()<left>
-"   Position cursor between [] after typing []
+" Position cursor between [] after typing []
 imap [] []<left>
-"   Position cursor between {} after typing {}
+" Position cursor between {} after typing {}
 imap {} {}<left>
-"   Press <CTRL>-{ to get indented {}
-imap  {<CR>}<ESC>O
-map  i{<CR>}<ESC><up>
+" Position cursor between <> after typing <>
+imap <> <><left>
 
-" Specific move and insert maps
-"  PERL
-"   <CTRL>-d inserts $self->{logger}->dumper($res);
-autocmd FileType perl map <C-d>		i$self->{logger}->dumper($res);<esc>bb
-autocmd FileType perl imap <C-d>	$self->{logger}->dumper($res);<esc>bb<insert>
-"   <CTRL>-up/down moves through subs
-autocmd FileType perl map <C-Up>	?^sub <CR>zz
-autocmd FileType perl imap <C-Up>	<esc>?^sub <CR>zzi
-autocmd FileType perl map <C-Down>	/^sub <CR>zz
-autocmd FileType perl imap <C-Down>	<esc>/^sub <CR>zzi
-"   K on subs or modules opens perldoc
-autocmd FileType perl noremap K :!echo <cWORD> <cword> <bar> perl -e '$line = <STDIN>; if ($line =~ /(\w+::\w+)/){exec("perldoc $1")} elsif($line =~ /(\w+)/){exec "perldoc -f $1 <bar><bar> perldoc $1"}'<cr><cr>
-"  PHP
-"   <CTRL>-d inserts Zend_Debug::dump($res);
-autocmd FileType php map <C-d>		iZend_Debug::dump($res);<esc>bb<right>
-autocmd FileType php imap <C-d>		Zend_Debug::dump($res);<esc>bb<right><insert>
-"   <CTRL>-up/down moves through functions
-autocmd FileType php map <C-Up>		?function <CR>zz
-autocmd FileType php imap <C-Up>	<esc>?function <CR>zzi
-autocmd FileType php map <C-Down>	/function <CR>zz
-autocmd FileType php imap <C-Down>	<esc>/function <CR>zzi
-"  JAVA
-"   <CTRL>-d inserts System.out.println(res);
-autocmd FileType java map <C-d>		iSystem.out.println(res);<esc>bb
-autocmd FileType java imap <C-d>	System.out.println(res);<esc>bb<insert>
-"  C
-"   <CTRL>-d inserts printf("%i\n", i)
-autocmd FileType c map <C-d>	iprintf("%i\n", i);<esc>bb
-autocmd FileType c imap <C-d>	printf("%i\n", i);<esc>bb<insert>
+" <ALT-up/down> moves through paragraphs
+map [1;3A {
+imap [1;3A <esc>{i
+map [1;3B }
+imap [1;3B <esc>}i
 
+" <CTRL-up/down> moves through functions
+autocmd FileType perl map  <C-Up>   ?^sub <CR>zz
+autocmd FileType perl imap <C-Up>   <esc>?^sub <CR>zzi
+autocmd FileType perl map  <C-Down> /^sub <CR>zz
+autocmd FileType perl imap <C-Down> <esc>/^sub <CR>zzi
+autocmd FileType php  map  <C-Up>   ?function <CR>zz
+autocmd FileType php  imap <C-Up>   <esc>?function <CR>zzi
+autocmd FileType php  map  <C-Down> /function <CR>zz
+autocmd FileType php  imap <C-Down> <esc>/function <CR>zzi
 
+" <CTRL-d> inserts debug statement
+autocmd FileType perl map  <C-d> iprint Dumper $res;<esc>b
+autocmd FileType perl imap <C-d> print Dumper $res;<esc>b<insert>
+autocmd FileType php  map  <C-d> ivar_dump($res);<esc>bb
+autocmd FileType php  imap <C-d> var_dump($res);<esc>bb<insert>
+autocmd FileType java map  <C-d> iSystem.out.println(res);<esc>bb
+autocmd FileType java imap <C-d> System.out.println(res);<esc>bb<insert>
+autocmd FileType c    map  <C-d> iprintf("%s\n", i);<esc>bb
+autocmd FileType c    imap <C-d> printf("%s\n", i);<esc>bb<insert>
 
-" Command maps
-"  Spell
-"   F7 find suggestions for bad words
-map <F7>	z=
+" F7 find suggestions for bad words
+map <F7> z=
 
-"  TComment
-"   F8 toggles comments on and off
-map <F8>	gcc
-vmap <F8>	gc
+" F8 toggles comments on and off
+map <F8> gcc
+vmap <F8> gc
+imap <F8> <esc>gcc<CR>
 
-"  MAKE
-"   F9 triggers make
-map <F9>	:make<CR>
-imap <F9>	<esc>:make<CR>
+" F9 triggers make (also a syntax check for perl, php and python files)
+autocmd FileType perl compiler perl
+autocmd FileType php compiler php
+autocmd FileType python compiler python
+map <F9> :make<CR>
+imap <F9> <esc>:make<CR>
+" <SHIFT-F9> jumps to next error
+map <S-F9> :cn<CR>
+imap <S-F9> <esc>:cn<CR>
 
-"  GIT
-"   <CTRL><SHIFT>-F9 triggers GitBlame
-map <C-S-F9>	:Gblame<CR>
-imap <C-S-F9>	<esc>:Gblame<CR>
+" F10 triggers GitBlame
+map <F10> :Gblame<CR>
+imap <F10> <esc>:Gblame<CR>
 
-"  NERDTree
-"   F12 opens NERDTree
-map <F12>	:NERDTreeToggle<CR>
-imap <F12>	<esc>:NERDTreeToggle<CR>
+" F11 shows paste register
+map <F11> :reg<CR>
+imap <F11> <esc>:reg<CR>
+
+" F12 opens NERDTree
+map <F12> :NERDTreeToggle<CR>
+imap <F12> <esc>:NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
-"  Buffer Explorer / Browser 
-"   <SHIFT>-F12 opens bufexplorer
-map <S-F12>	\be
-imap <S-F12>	<esc>\be
+" K on subs or modules opens perldoc
+autocmd FileType perl noremap K :!echo <cWORD> <bar> perl -e '$line = <STDIN>; if ($line =~ /([\w:]+)/){exec("perldoc $1 <bar><bar> perldoc -f $1")}' 2>/dev/null<cr><cr>
 
-"  Register
-"   <CTRL><SHIFT>-F12 shows paste register
-map <C-S-F12>	:reg<CR>
-imap <C-S-F12>	<esc>:reg<CR>
+" Set phtml and tt files to filetype html to get html syntax highlighting, snippets, etc.
+autocmd BufNewFile,BufRead *.tt set filetype=html
+autocmd BufNewFile,BufRead *.phtml set filetype=phtml

@@ -130,9 +130,8 @@ map <F11> :reg<CR>
 imap <F11> <esc>:reg<CR>
 
 " F12 opens NERDTree
-map <F12> :NERDTreeToggle<CR>
-imap <F12> <esc>:NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1
+map <F12> :NERDTreeTabsToggle<CR>
+imap <F12> <esc>:NERDTreeTabsToggle<CR>
 
 " K on subs or modules opens perldoc
 autocmd FileType perl noremap K :!echo <cWORD> <bar> perl -e '$line = <STDIN>; if ($line =~ /([\w:]+)/){exec("perldoc $1 <bar><bar> perldoc -f $1")}' 2>/dev/null<cr><cr>

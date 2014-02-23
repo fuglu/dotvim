@@ -62,18 +62,6 @@ map <C-k> :tnext<CR>
 " Jump to previous tag on <CTRL>-l
 map <C-l> <C-T>
 
-" Position cursor between '' after typing ''
-imap '' ''<left>
-" Position cursor between "" after typing ""
-imap "" ""<left>
-" Position cursor between <> after typing <>
-imap <> <><left>
-" Position cursor between () after typing ()
-imap () ()<left>
-" Position cursor between [] after typing []
-imap [] []<left>
-" Position cursor between {} after typing {}
-imap {} {}<left>
 " Position cursor between <> after typing <>
 imap <> <><left>
 

@@ -91,6 +91,14 @@ autocmd FileType java imap <C-d> System.out.println(res);<esc>bb<insert>
 autocmd FileType c    map  <C-d> iprintf("%s\n", i);<esc>bb
 autocmd FileType c    imap <C-d> printf("%s\n", i);<esc>bb<insert>
 
+" <CTRL-o> opens CommandT
+map <C-o> :CommandT<CR>
+imap <C-o> <esc>:CommandT<CR>
+let g:CommandTHighlightColor='Underlined'
+let g:CommandTMaxHeight=20
+let g:CommandTCancelMap=['<esc>', '<C-c>']
+let g:CommandTMatchWindowAtTop=1
+
 " F7 find suggestions for bad words
 map <F7> z=
 

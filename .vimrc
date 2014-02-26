@@ -135,6 +135,3 @@ autocmd FileType perl noremap K :!echo <cWORD> <bar> perl -e '$line = <STDIN>; i
 " Set phtml and tt files to filetype html to get html syntax highlighting, snippets, etc.
 autocmd BufNewFile,BufRead *.tt set filetype=html
 autocmd BufNewFile,BufRead *.phtml set filetype=phtml
-
-" Syntastic perl lib path
-let g:syntastic_perl_lib_path = [ './lib' ]

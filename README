@@ -1,4 +1,6 @@
 fuglu's vim files
 
-* Use "git submodule update --init" to init submodules
-* Use "git submodule update" to update submodules
+* Use "git submodule update --init" to init submodules after cloning
+* Use "git submodule foreach git pull" to upgrade all submodules
+
+:wq

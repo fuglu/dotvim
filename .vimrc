@@ -82,14 +82,16 @@ autocmd FileType php  map  <C-Down> /function <CR>zz
 autocmd FileType php  imap <C-Down> <esc>/function <CR>zzi
 
 " <CTRL-d> inserts debug statement
-autocmd FileType perl map  <C-d> iprint Dumper $res;<esc>b
-autocmd FileType perl imap <C-d> print Dumper $res;<esc>b<insert>
-autocmd FileType php  map  <C-d> ivar_dump($res);<esc>bb
-autocmd FileType php  imap <C-d> var_dump($res);<esc>bb<insert>
-autocmd FileType java map  <C-d> iSystem.out.println(res);<esc>bb
-autocmd FileType java imap <C-d> System.out.println(res);<esc>bb<insert>
-autocmd FileType c    map  <C-d> iprintf("%s\n", i);<esc>bb
-autocmd FileType c    imap <C-d> printf("%s\n", i);<esc>bb<insert>
+autocmd FileType perl       map  <C-d> iprint Dumper $res;<esc>b
+autocmd FileType perl       imap <C-d> print Dumper $res;<esc>b<insert>
+autocmd FileType php        map  <C-d> ivar_dump($res);<esc>bb
+autocmd FileType php        imap <C-d> var_dump($res);<esc>bb<insert>
+autocmd FileType java       map  <C-d> iSystem.out.println(res);<esc>bb
+autocmd FileType java       imap <C-d> System.out.println(res);<esc>bb<insert>
+autocmd FileType c          map  <C-d> iprintf("%s\n", i);<esc>bb
+autocmd FileType c          imap <C-d> printf("%s\n", i);<esc>bb<insert>
+autocmd FileType javascript map  <C-d> iconsole.log(data);<esc>bb
+autocmd FileType javascript imap <C-d> console.log(data);<esc>bb<insert>
 
 " <CTRL-o> opens CommandT
 map <C-o> :CommandT<CR>

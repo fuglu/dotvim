@@ -1,10 +1,32 @@
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Load specific indentation and plugin rules
-filetype indent on
-filetype plugin on
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tokutake/twig-indent'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
+Plugin 'docunext/closetag.vim'
+Plugin 'wincent/Command-T'
+Plugin 'edsono/vim-matchit'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'fuglu/vim-twig'
+
+call vundle#end()
+filetype plugin indent on
+
+
 
 " Jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -32,6 +54,9 @@ set autowrite
 " More tabs for `vim -p *`
 set tabpagemax=100
 
+" Longer history
+set history=500
+
 " Minimum lines to keep above and below cursor
 set scrolloff=3
 
@@ -50,74 +75,54 @@ set listchars=tab:»·
 set listchars+=trail:·
 set listchars+=extends:>,precedes:<
 
+" CTags file locations
+set tags=./.tags;,./tags;
+
+" Set compiler
+autocmd FileType perl compiler perl
+autocmd FileType php compiler php
+autocmd FileType python compiler python
+
 " Highlight space errors
 match Debug /\s\+$/
 
-" CTags file locations
-set tags=./.tags;,./tags;
-" Jump to tag on <CTRL>-j
+
+
+" Find tags on <CTRL-j/k> and jump back on <CTRL-l>
 map <C-j> zz
-" Jump to next tag on <CTRL>-k
 map <C-k> :tnext<CR>
-" Jump to previous tag on <CTRL>-l
 map <C-l> <C-T>
 
-" Position cursor between <> after typing <>
-imap <> <><left>
-
-" <ALT-up/down> moves through paragraphs
-map [1;3A {
-imap [1;3A <esc>{i
-map [1;3B }
-imap [1;3B <esc>}i
-
 " <CTRL-up/down> moves through functions
-autocmd FileType perl map  <C-Up>   ?^sub <CR>zz
-autocmd FileType perl imap <C-Up>   <esc>?^sub <CR>zzi
-autocmd FileType perl map  <C-Down> /^sub <CR>zz
-autocmd FileType perl imap <C-Down> <esc>/^sub <CR>zzi
-autocmd FileType php  map  <C-Up>   ?function <CR>zz
-autocmd FileType php  imap <C-Up>   <esc>?function <CR>zzi
-autocmd FileType php  map  <C-Down> /function <CR>zz
-autocmd FileType php  imap <C-Down> <esc>/function <CR>zzi
+autocmd FileType python map  <C-Up>   ?^def <CR>zz
+autocmd FileType python imap <C-Up>   <esc>?^def <CR>zzi
+autocmd FileType python map  <C-Down> /^def <CR>zz
+autocmd FileType python imap <C-Down> <esc>/^def <CR>zzi
+autocmd FileType perl   map  <C-Up>   ?^sub <CR>zz
+autocmd FileType perl   imap <C-Up>   <esc>?^sub <CR>zzi
+autocmd FileType perl   map  <C-Down> /^sub <CR>zz
+autocmd FileType perl   imap <C-Down> <esc>/^sub <CR>zzi
+autocmd FileType php,javascript  map  <C-Up>   ?function <CR>zz
+autocmd FileType php,javascript  imap <C-Up>   <esc>?function <CR>zzi
+autocmd FileType php,javascript  map  <C-Down> /function <CR>zz
+autocmd FileType php,javascript  imap <C-Down> <esc>/function <CR>zzi
 
-" <CTRL-d> inserts debug statement
-autocmd FileType perl       map  <C-d> iprint Dumper $res;<esc>b
-autocmd FileType perl       imap <C-d> print Dumper $res;<esc>b<insert>
-autocmd FileType php        map  <C-d> ivar_dump($res);<esc>bb
-autocmd FileType php        imap <C-d> var_dump($res);<esc>bb<insert>
-autocmd FileType java       map  <C-d> iSystem.out.println(res);<esc>bb
-autocmd FileType java       imap <C-d> System.out.println(res);<esc>bb<insert>
-autocmd FileType c          map  <C-d> iprintf("%s\n", i);<esc>bb
-autocmd FileType c          imap <C-d> printf("%s\n", i);<esc>bb<insert>
-autocmd FileType javascript map  <C-d> iconsole.log(data);<esc>bb
-autocmd FileType javascript imap <C-d> console.log(data);<esc>bb<insert>
 
-" <CTRL-o> opens CommandT
-map <C-o> :CommandT<CR>
-imap <C-o> <esc>:CommandT<CR>
-let g:CommandTHighlightColor='Underlined'
-let g:CommandTMaxHeight=20
-let g:CommandTCancelMap=['<esc>', '<C-c>']
-let g:CommandTMatchWindowAtTop=1
+
+" F6 toggles paste
+set pastetoggle=<F6>
 
 " F7 find suggestions for bad words
 map <F7> z=
 
-" F8 toggles comments on and off
+" F8 toggles comments
 map <F8> gcc
 vmap <F8> gc
 imap <F8> <esc>gcc<CR>
 
-" F9 triggers make (also a syntax check for perl, php and python files)
-autocmd FileType perl compiler perl
-autocmd FileType php compiler php
-autocmd FileType python compiler python
+" F9 triggers make
 map <F9> :make<CR>
 imap <F9> <esc>:make<CR>
-" <SHIFT-F9> jumps to next error
-map <S-F9> :cn<CR>
-imap <S-F9> <esc>:cn<CR>
 
 " F10 triggers GitBlame
 map <F10> :Gblame<CR>
@@ -131,9 +136,31 @@ imap <F11> <esc>:reg<CR>
 map <F12> :NERDTreeTabsToggle<CR>
 imap <F12> <esc>:NERDTreeTabsToggle<CR>
 
+" <CTRL-o> opens CommandT
+map <C-o> :CommandT<CR>
+imap <C-o> <esc>:CommandT<CR>
+let g:CommandTHighlightColor='Underlined'
+let g:CommandTMaxHeight=50
+let g:CommandTCancelMap=['<esc>', '<C-c>']
+let g:CommandTMatchWindowAtTop=1
+
+" <CTRL-d> inserts debug statement
+autocmd FileType perl       map  <C-d> <insert>print Dumper $res;<esc>
+autocmd FileType perl       imap <C-d> print Dumper $res;
+autocmd FileType php        map  <C-d> <insert>var_dump($res);<esc>
+autocmd FileType php        imap <C-d> var_dump($res);
+autocmd FileType java       map  <C-d> <insert>System.out.println(res);<esc>
+autocmd FileType java       imap <C-d> System.out.println(res);
+autocmd FileType c          map  <C-d> <insert>printf("%s\n", i);<esc>
+autocmd FileType c          imap <C-d> printf("%s\n", i);
+autocmd FileType javascript map  <C-d> <insert>console.log(data);<esc>
+autocmd FileType javascript imap <C-d> console.log(data);
+
 " K on subs or modules opens perldoc
 autocmd FileType perl noremap K :!echo <cWORD> <bar> perl -e '$line = <STDIN>; if ($line =~ /([\w:]+)/){exec("perldoc $1 <bar><bar> perldoc -f $1")}' 2>/dev/null<cr><cr>
 
-" Set phtml and tt files to filetype html to get html syntax highlighting, snippets, etc.
+
+
+" Set some filetypes
 autocmd BufNewFile,BufRead *.tt set filetype=html
-autocmd BufNewFile,BufRead *.phtml set filetype=phtml
+autocmd BufNewFile,BufRead *.phtml set filetype=html

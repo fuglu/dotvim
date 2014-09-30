@@ -164,3 +164,4 @@ autocmd FileType perl noremap K :!echo <cWORD> <bar> perl -e '$line = <STDIN>; i
 " Set some filetypes
 autocmd BufNewFile,BufRead *.tt set filetype=html
 autocmd BufNewFile,BufRead *.phtml set filetype=html
+autocmd BufNewFile,BufRead *.ejs set filetype=html

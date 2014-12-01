@@ -32,6 +32,7 @@ set wildignore+=*/.sass-cache/*
 set wildignore+=*/local/*
 set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/[^(sipgate)]*
+set wildignore+=*/build/*
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1

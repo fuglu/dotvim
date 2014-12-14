@@ -55,7 +55,7 @@ Optional
 --------
 
 ```sh
-# Install some linters.
+# Install some linters
 sudo aptitude install libxml2-utils
 sudo aptitude install pylint
 sudo aptitude install tidy

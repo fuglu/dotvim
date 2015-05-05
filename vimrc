@@ -9,6 +9,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ap/vim-css-color'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'chase/vim-ansible-yaml'
 Plugin 'docunext/closetag.vim'
 Plugin 'edsono/vim-matchit'
 Plugin 'ervandew/supertab'
@@ -31,7 +32,7 @@ set wildignore+=*/.git/*
 set wildignore+=*/.sass-cache/*
 set wildignore+=*/local/*
 set wildignore+=*/node_modules/*
-set wildignore+=*/vendor/[^(sipgate)]*
+set wildignore+=*/vendor/[^s]*
 set wildignore+=*/build/*
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
@@ -41,6 +42,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_perl_checker=1
 let g:syntastic_perl_checkers = ['perl', 'perlcritic', 'podchecker']
 let g:syntastic_perl_lib_path=[ './lib', './local/lib/perl5' ]
+Plugin 'stephpy/vim-yaml'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tokutake/twig-indent'
 Plugin 'tomtom/tlib_vim'

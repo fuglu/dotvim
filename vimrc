@@ -10,31 +10,22 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ap/vim-css-color'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'docunext/closetag.vim'
 Plugin 'edsono/vim-matchit'
 Plugin 'ervandew/supertab'
-Plugin 'fuglu/vim-twig'
+Plugin 'evidens/vim-twig'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gregsexton/MatchTag'
 Plugin 'honza/vim-snippets'
+Plugin 'jamessan/vim-gnupg'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_match_window = 'top,max:20,order:ttb'
 let g:ctrlp_show_hidden = 1
-set wildignore+=*.class,*.jar
-set wildignore+=*.o,*.so
-set wildignore+=*.png,*.jpeg,*.jpg,*.gif
-set wildignore+=*.pyc
-set wildignore+=*.swp
-set wildignore+=*.tags
-set wildignore+=*/.git/*
-set wildignore+=*/.sass-cache/*
-set wildignore+=*/local/*
-set wildignore+=*/node_modules/*
-set wildignore+=*/vendor/[^s]*
-set wildignore+=*/build/*
 Plugin 'majutsushi/tagbar'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 Plugin 'scrooloose/nerdtree'

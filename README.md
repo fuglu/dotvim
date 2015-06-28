@@ -5,6 +5,7 @@ Plugins
 -------
 
 * https://github.com/gmarik/Vundle.vim
+* https://github.com/Glench/Vim-Jinja2-Syntax
 * https://github.com/MarcWeber/vim-addon-mw-utils
 * https://github.com/Raimondi/delimitMate
 * https://github.com/ap/vim-css-color

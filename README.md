@@ -31,7 +31,6 @@ Plugins
 * https://github.com/tomtom/tlib_vim
 * https://github.com/tpope/vim-fugitive
 * https://github.com/tpope/vim-repeat
-* https://github.com/xolox/vim-easytags
 * https://github.com/xolox/vim-misc
 
 

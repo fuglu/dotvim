@@ -34,7 +34,6 @@ Plugin 'tokutake/twig-indent'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 
 call vundle#end()
@@ -57,17 +56,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
 
 
-" Easytags
-let g:easytags_auto_highlight = 0
-let g:easytags_auto_update = 1
-let g:easytags_autorecurse = 1
-let g:easytags_dynamic_files = 2
-set cpoptions=aABcdeFs
-
-let git_folder = finddir('.git', fnameescape(expand('%:p:h')) . ';')
-if empty(git_folder)
-	let g:easytags_auto_update = 0
-endif
+" Easytags alternative
+autocmd BufWritePost * if filereadable("./.tags") | call system("pgrep ctags &> /dev/null || ctags -R -o .tags --exclude=.git &> /dev/null &") | endif
 
 
 " Multiple cursors

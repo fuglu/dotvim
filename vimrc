@@ -79,6 +79,7 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 
 
 " Syntastic
+let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'perlcritic', 'podchecker']
 let g:syntastic_perl_lib_path = [ './lib', './local/lib/perl5' ]

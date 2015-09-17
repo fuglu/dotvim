@@ -1,42 +1,38 @@
-Mega awesome vim files
-======================
+Installed plugins
+=================
 
-Plugins
--------
-
-* https://github.com/gmarik/Vundle.vim
-* https://github.com/Glench/Vim-Jinja2-Syntax
-* https://github.com/MarcWeber/vim-addon-mw-utils
-* https://github.com/Xuyuanp/git-nerdtree
-* https://github.com/airblade/vim-gitgutter
-* https://github.com/airblade/vim-rooter
-* https://github.com/bronson/vim-trailing-whitespace
-* https://github.com/chase/vim-ansible-yaml
-* https://github.com/ervandew/supertab
-* https://github.com/evidens/vim-twig
-* https://github.com/garbas/vim-snipmate
-* https://github.com/gorodinskiy/vim-coloresque
-* https://github.com/gregsexton/MatchTag
-* https://github.com/honza/vim-snippets
-* https://github.com/jamessan/vim-gnupg
-* https://github.com/jiangmiao/auto-pairs
-* https://github.com/kien/ctrlp.vim
-* https://github.com/rking/ag.vim
-* https://github.com/scrooloose/nerdcommenter
-* https://github.com/scrooloose/nerdtree
-* https://github.com/scrooloose/syntastic
-* https://github.com/stephpy/vim-yaml
-* https://github.com/terryma/vim-multiple-cursors
-* https://github.com/tokutake/twig-indent
-* https://github.com/tomtom/tlib_vim
-* https://github.com/tpope/vim-fugitive
-* https://github.com/tpope/vim-repeat
-* https://github.com/xolox/vim-misc
-
+* [Vundle.vim](https://github.com/gmarik/Vundle.vim)
+* [Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
+* [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
+* [git-nerdtree](https://github.com/Xuyuanp/git-nerdtree)
+* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* [vim-rooter](https://github.com/airblade/vim-rooter)
+* [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+* [vim-ansible-yaml](https://github.com/chase/vim-ansible-yaml)
+* [supertab](https://github.com/ervandew/supertab)
+* [vim-twig](https://github.com/evidens/vim-twig)
+* [vim-snipmate](https://github.com/garbas/vim-snipmate)
+* [vim-coloresque](https://github.com/gorodinskiy/vim-coloresque)
+* [MatchTag](https://github.com/gregsexton/MatchTag)
+* [vim-snippets](https://github.com/honza/vim-snippets)
+* [vim-gnupg](https://github.com/jamessan/vim-gnupg)
+* [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [ctrlp.vim](https://github.com/kien/ctrlp.vim)
+* [ag.vim](https://github.com/rking/ag.vim)
+* [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+* [nerdtree](https://github.com/scrooloose/nerdtree)
+* [syntastic](https://github.com/scrooloose/syntastic)
+* [vim-yaml](https://github.com/stephpy/vim-yaml)
+* [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+* [twig-indent](https://github.com/tokutake/twig-indent)
+* [tlib_vim](https://github.com/tomtom/tlib_vim)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)
+* [vim-repeat](https://github.com/tpope/vim-repeat)
+* [vim-misc](https://github.com/xolox/vim-misc)
 
 
 Installation
-------------
+============
 
 ```sh
 # Clone repo
@@ -55,12 +51,12 @@ vim +PluginInstall
 ```
 
 
-
-Optional
---------
+Required packages
+=================
 
 ```sh
-# Install some linters
+sudo aptitude install exuberant-ctags
+sudo aptitude install gcc
 sudo aptitude install libxml2-utils
 sudo aptitude install pylint
 sudo aptitude install tidy

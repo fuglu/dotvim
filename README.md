@@ -39,12 +39,12 @@ Installation
 cd ~
 mkdir git
 cd git
-git clone https://github.com/fuglu/vim-files.git
+git clone https://github.com/fuglu/dotvim.git
 cd ~
 
 # Create links
-ln -s git/vim-files/vimrc .vimrc
-ln -s git/vim-files/vim .vim
+ln -s git/dotvim/vimrc .vimrc
+ln -s git/dotvim/vim .vim
 
 # Install plugins
 vim +PluginInstall

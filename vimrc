@@ -1,37 +1,55 @@
-" Load plugins
-" ============
-
-set nocompatible
+" Plugins
+" =======
 
 call plug#begin()
-	Plug 'airblade/vim-gitgutter'
-	Plug 'airblade/vim-rooter'
-	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'chase/vim-ansible-yaml'
-	Plug 'ervandew/supertab'
-	Plug 'evidens/vim-twig'
-	Plug 'garbas/vim-snipmate'
-	Plug 'Glench/Vim-Jinja2-Syntax'
-	Plug 'gorodinskiy/vim-coloresque'
-	Plug 'gregsexton/MatchTag'
-	Plug 'honza/vim-snippets'
-	Plug 'jamessan/vim-gnupg'
+	" Editor
+	" ------
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'kien/ctrlp.vim'
-	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'MarcWeber/vim-addon-mw-utils'
-	Plug 'rking/ag.vim'
+	Plug 'gregsexton/MatchTag'
 	Plug 'scrooloose/nerdcommenter'
-	Plug 'scrooloose/nerdtree'
+	Plug 'ervandew/supertab'
 	Plug 'scrooloose/syntastic'
-	Plug 'stephpy/vim-yaml'
 	Plug 'terryma/vim-multiple-cursors'
-	Plug 'tokutake/twig-indent'
-	Plug 'tomtom/tlib_vim'
+	Plug 'garbas/vim-snipmate'
+		Plug 'tomtom/tlib_vim'
+		Plug 'MarcWeber/vim-addon-mw-utils'
+		Plug 'honza/vim-snippets'
+	Plug 'bronson/vim-trailing-whitespace'
+
+	" Git
+	" ---
+	Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-repeat'
-	Plug 'xolox/vim-misc'
-	Plug 'Xuyuanp/git-nerdtree'
+	Plug 'airblade/vim-gitgutter'
+
+	" Movement
+	" --------
+	Plug 'rking/ag.vim',        { 'on': 'Ag' }
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'ludovicchabant/vim-gutentags'
+	Plug 'airblade/vim-rooter'
+
+	" Javascript
+	" ----------
+	Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
+	Plug 'pangloss/vim-javascript',             { 'for': 'javascript' }
+	Plug 'mxw/vim-jsx',                         { 'for': 'javascript' }
+
+	" GPG
+	" ---
+	Plug 'jamessan/vim-gnupg', { 'for': 'gpg' }
+
+	" PHP
+	" ---
+	Plug 'tokutake/twig-indent',     { 'for': 'php' }
+	Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'php' }
+	Plug 'evidens/vim-twig',         { 'for': 'php' }
+
+	" YAML
+	" ----
+	Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
+	Plug 'stephpy/vim-yaml',       { 'for': 'yaml' }
 call plug#end()
 
 
@@ -40,43 +58,54 @@ call plug#end()
 " ====================
 
 " Ag
-let g:agprg = 'ag --vimgrep --ignore-case'
+" --
+let g:ag_prg = 'ag --vimgrep --ignore-case --skip-vcs-ignores --ignore node_modules'
 let g:ag_working_path_mode = 'r'
 
 
 " CtrlP
+" -----
 let g:ctrlp_match_window = 'top,max:20,order:ttb'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
 
 
 " Gutentags
+" ---------
 let g:gutentags_tagfile = ".tags"
 
 
+" JSX
+" ---
+let g:jsx_ext_required = 0
+
+
 " Multiple cursors
+" ----------------
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 
 
 " NerdCommenter
+" -------------
 let NERDSpaceDelims = 1
 
 
 " NerdTree
-let NERDTreeQuitOnOpen = 1
+" --------
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " SuperTab
+" --------
 let g:SuperTabDefaultCompletionType = '<c-n>'
 
 
 " Syntastic
+" ---------
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'perlcritic', 'podchecker']
 let g:syntastic_perl_lib_path = [ './lib', './local/lib/perl5' ]
@@ -85,6 +114,8 @@ let g:syntastic_perl_lib_path = [ './lib', './local/lib/perl5' ]
 
 " Vim config
 " ==========
+
+set nocompatible
 
 syntax on
 set background=dark
@@ -99,6 +130,7 @@ set showmatch
 set tabpagemax=100
 set tags=./.tags;,./tags;
 set wildmenu
+set clipboard=
 
 
 " Jump to the last position when reopening a file

@@ -18,38 +18,38 @@ call plug#begin()
 
 	" Git
 	" ---
-	Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 
 	" Movement
 	" --------
-	Plug 'rking/ag.vim',        { 'on': 'Ag' }
+	Plug 'rking/ag.vim'
 	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'scrooloose/nerdtree'
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'airblade/vim-rooter'
 
 	" Javascript
 	" ----------
-	Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
-	Plug 'pangloss/vim-javascript',             { 'for': 'javascript' }
-	Plug 'mxw/vim-jsx',                         { 'for': 'javascript' }
+	Plug 'mtscout6/syntastic-local-eslint.vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'mxw/vim-jsx'
 
 	" GPG
 	" ---
-	Plug 'jamessan/vim-gnupg', { 'for': 'gpg' }
+	Plug 'jamessan/vim-gnupg'
 
 	" PHP
 	" ---
-	Plug 'tokutake/twig-indent',     { 'for': 'php' }
-	Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'php' }
-	Plug 'evidens/vim-twig',         { 'for': 'php' }
+	Plug 'tokutake/twig-indent'
+	Plug 'Glench/Vim-Jinja2-Syntax'
+	Plug 'evidens/vim-twig'
 
 	" YAML
 	" ----
-	Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
-	Plug 'stephpy/vim-yaml',       { 'for': 'yaml' }
+	Plug 'chase/vim-ansible-yaml'
+	Plug 'stephpy/vim-yaml'
 call plug#end()
 
 

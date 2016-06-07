@@ -59,7 +59,6 @@ call plug#end()
 
 " Ag
 " --
-let g:ag_prg = 'ag --vimgrep --ignore-case --skip-vcs-ignores --ignore node_modules'
 let g:ag_working_path_mode = 'r'
 
 

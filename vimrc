@@ -24,7 +24,7 @@ call plug#begin()
 
 	" Movement
 	" --------
-	Plug 'rking/ag.vim'
+	Plug 'mhinz/vim-grepper'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'scrooloose/nerdtree'
 	Plug 'ludovicchabant/vim-gutentags'
@@ -56,11 +56,6 @@ call plug#end()
 
 " Plugin configuration
 " ====================
-
-" Ag
-" --
-let g:ag_working_path_mode = 'r'
-
 
 " CtrlP
 " -----
@@ -191,8 +186,8 @@ map <c-l> <C-T>
 
 " Search with :grep or <Ctrl-f>
 " -----------------------------
-cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ag' : 'grep')<CR>
-map <c-f> :Ag <cword><cr>
+cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Grepper -query' : 'grep')<CR>
+map <c-f> :Grepper -cword -noprompt<cr>
 
 
 " Open fuzzy finder with <Ctrl-o>

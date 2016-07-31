@@ -30,21 +30,28 @@ call plug#begin()
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'airblade/vim-rooter'
 
+	" Coffeescript
+	" ------------
+	Plug 'kchmck/vim-coffee-script'
+
+	" GPG
+	" ---
+	Plug 'jamessan/vim-gnupg'
+
 	" Javascript
 	" ----------
 	Plug 'mtscout6/syntastic-local-eslint.vim'
 	Plug 'pangloss/vim-javascript'
 	Plug 'mxw/vim-jsx'
 
-	" GPG
-	" ---
-	Plug 'jamessan/vim-gnupg'
-
 	" PHP
 	" ---
 	Plug 'tokutake/twig-indent'
-	Plug 'Glench/Vim-Jinja2-Syntax'
 	Plug 'evidens/vim-twig'
+
+	" Python
+	" ------
+	Plug 'Glench/Vim-Jinja2-Syntax'
 
 	" YAML
 	" ----

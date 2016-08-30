@@ -25,7 +25,6 @@ sudo npm install -g coffeelint csslint js-yaml jshint jsonlint less
 Plugins
 =======
 
-* [ag.vim](https://github.com/rking/ag.vim)
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 * [MatchTag](https://github.com/gregsexton/MatchTag)
@@ -39,9 +38,11 @@ Plugins
 * [twig-indent](https://github.com/tokutake/twig-indent)
 * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
 * [vim-ansible-yaml](https://github.com/chase/vim-ansible-yaml)
+* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 * [vim-gnupg](https://github.com/jamessan/vim-gnupg)
+* [vim-grepper](https://github.com/mhinz/vim-grepper)
 * [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)
 * [vim-javascript](https://github.com/pangloss/vim-javascript)
 * [Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
@@ -84,11 +85,19 @@ call plug#begin()
 
 	" Movement
 	" --------
-	Plug 'rking/ag.vim'
+	Plug 'mhinz/vim-grepper'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'scrooloose/nerdtree'
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'airblade/vim-rooter'
+
+	" Coffeescript
+	" ------------
+	Plug 'kchmck/vim-coffee-script'
+
+	" GPG
+	" ---
+	Plug 'jamessan/vim-gnupg'
 
 	" Javascript
 	" ----------
@@ -96,15 +105,14 @@ call plug#begin()
 	Plug 'pangloss/vim-javascript'
 	Plug 'mxw/vim-jsx'
 
-	" GPG
-	" ---
-	Plug 'jamessan/vim-gnupg'
-
 	" PHP
 	" ---
 	Plug 'tokutake/twig-indent'
-	Plug 'Glench/Vim-Jinja2-Syntax'
 	Plug 'evidens/vim-twig'
+
+	" Python
+	" ------
+	Plug 'Glench/Vim-Jinja2-Syntax'
 
 	" YAML
 	" ----
@@ -116,11 +124,6 @@ call plug#end()
 
 " Plugin configuration
 " ====================
-
-" Ag
-" --
-let g:ag_working_path_mode = 'r'
-
 
 " CtrlP
 " -----
@@ -251,8 +254,8 @@ map <c-l> <C-T>
 
 " Search with :grep or <Ctrl-f>
 " -----------------------------
-cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ag' : 'grep')<CR>
-map <c-f> :Ag <cword><cr>
+cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Grepper -query' : 'grep')<CR>
+map <c-f> :Grepper -cword -noprompt<cr>
 
 
 " Open fuzzy finder with <Ctrl-o>

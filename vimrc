@@ -9,6 +9,7 @@ call plug#begin()
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'ervandew/supertab'
 	Plug 'scrooloose/syntastic'
+	Plug 'alvan/vim-closetag'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'garbas/vim-snipmate'
 		Plug 'tomtom/tlib_vim'
@@ -63,6 +64,11 @@ call plug#end()
 
 " Plugin configuration
 " ====================
+
+" Closetag
+" --------
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.tt,*.ejs"
+
 
 " CtrlP
 " -----

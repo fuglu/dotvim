@@ -38,6 +38,7 @@ Plugins
 * [twig-indent](https://github.com/tokutake/twig-indent)
 * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
 * [vim-ansible-yaml](https://github.com/chase/vim-ansible-yaml)
+* [vim-closetag](https://github.com/alvan/vim-closetag)
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
@@ -70,6 +71,7 @@ call plug#begin()
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'ervandew/supertab'
 	Plug 'scrooloose/syntastic'
+	Plug 'alvan/vim-closetag'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'garbas/vim-snipmate'
 		Plug 'tomtom/tlib_vim'
@@ -124,6 +126,11 @@ call plug#end()
 
 " Plugin configuration
 " ====================
+
+" Closetag
+" --------
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.tt,*.ejs"
+
 
 " CtrlP
 " -----

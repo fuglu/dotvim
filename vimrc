@@ -45,6 +45,10 @@ call plug#begin()
 	Plug 'pangloss/vim-javascript'
 	Plug 'mxw/vim-jsx'
 
+	" Kamailio
+	" ----------
+	Plug 'kamailio/vim-kamailio-syntax'
+
 	" PHP
 	" ---
 	Plug 'tokutake/twig-indent'

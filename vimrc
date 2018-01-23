@@ -17,51 +17,25 @@ call plug#begin()
 		Plug 'honza/vim-snippets'
 	Plug 'bronson/vim-trailing-whitespace'
 
+	" Movement
+	" --------
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'scrooloose/nerdtree'
+	Plug 'mhinz/vim-grepper'
+	Plug 'ludovicchabant/vim-gutentags'
+	Plug 'airblade/vim-rooter'
+
+	" Language Support
+	" ----------------
+	Plug 'jamessan/vim-gnupg'
+	Plug 'kamailio/vim-kamailio-syntax'
+	Plug 'sheerun/vim-polyglot'
 
 	" Git
 	" ---
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
-
-	" Movement
-	" --------
-	Plug 'mhinz/vim-grepper'
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'scrooloose/nerdtree'
-	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'airblade/vim-rooter'
-
-	" Coffeescript
-	" ------------
-	Plug 'kchmck/vim-coffee-script'
-
-	" GPG
-	" ---
-	Plug 'jamessan/vim-gnupg'
-
-	" Javascript
-	" ----------
-	Plug 'pangloss/vim-javascript'
-	Plug 'mxw/vim-jsx'
-
-	" Kamailio
-	" --------
-	Plug 'kamailio/vim-kamailio-syntax'
-
-	" PHP
-	" ---
-	Plug 'tokutake/twig-indent'
-	Plug 'evidens/vim-twig'
-
-	" Python
-	" ------
-	Plug 'Glench/Vim-Jinja2-Syntax'
-
-	" YAML
-	" ----
-	Plug 'chase/vim-ansible-yaml'
-	Plug 'stephpy/vim-yaml'
 call plug#end()
 
 
@@ -89,11 +63,6 @@ let g:ctrlp_working_path_mode = 'ra'
 " Gutentags
 " ---------
 let g:gutentags_ctags_tagfile = ".tags"
-
-
-" JSX
-" ---
-let g:jsx_ext_required = 0
 
 
 " Multiple cursors

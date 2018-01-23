@@ -25,6 +25,7 @@ sudo npm install -g coffeelint csslint js-yaml jshint jsonlint less
 Plugins
 =======
 
+* [ale](https://github.com/w0rp/ale)
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 * [MatchTag](https://github.com/gregsexton/MatchTag)
@@ -32,29 +33,21 @@ Plugins
 * [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 * [nerdtree](https://github.com/scrooloose/nerdtree)
 * [supertab](https://github.com/ervandew/supertab)
-* [syntastic-local-eslint.vim](https://github.com/mtscout6/syntastic-local-eslint.vim)
-* [syntastic](https://github.com/scrooloose/syntastic)
 * [tlib_vim](https://github.com/tomtom/tlib_vim)
-* [twig-indent](https://github.com/tokutake/twig-indent)
 * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
-* [vim-ansible-yaml](https://github.com/chase/vim-ansible-yaml)
 * [vim-closetag](https://github.com/alvan/vim-closetag)
-* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 * [vim-gnupg](https://github.com/jamessan/vim-gnupg)
 * [vim-grepper](https://github.com/mhinz/vim-grepper)
 * [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)
-* [vim-javascript](https://github.com/pangloss/vim-javascript)
-* [Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-* [vim-jsx](https://github.com/mxw/vim-jsx)
+* [vim-kamailio-syntax](https://github.com/kamailio/vim-kamailio-syntax)
 * [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+* [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * [vim-rooter](https://github.com/airblade/vim-rooter)
 * [vim-snipmate](https://github.com/garbas/vim-snipmate)
 * [vim-snippets](https://github.com/honza/vim-snippets)
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
-* [vim-twig](https://github.com/evidens/vim-twig)
-* [vim-yaml](https://github.com/stephpy/vim-yaml)
 
 vimrc
 =====
@@ -66,11 +59,11 @@ vimrc
 call plug#begin()
 	" Editor
 	" ------
+	Plug 'w0rp/ale'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'gregsexton/MatchTag'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'ervandew/supertab'
-	Plug 'scrooloose/syntastic'
 	Plug 'alvan/vim-closetag'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'garbas/vim-snipmate'
@@ -79,53 +72,36 @@ call plug#begin()
 		Plug 'honza/vim-snippets'
 	Plug 'bronson/vim-trailing-whitespace'
 
+	" Movement
+	" --------
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'scrooloose/nerdtree'
+	Plug 'mhinz/vim-grepper'
+	Plug 'ludovicchabant/vim-gutentags'
+	Plug 'airblade/vim-rooter'
+
+	" Language Support
+	" ----------------
+	Plug 'jamessan/vim-gnupg'
+	Plug 'kamailio/vim-kamailio-syntax'
+	Plug 'sheerun/vim-polyglot'
+
 	" Git
 	" ---
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
-
-	" Movement
-	" --------
-	Plug 'mhinz/vim-grepper'
-	Plug 'ctrlpvim/ctrlp.vim'
-	Plug 'scrooloose/nerdtree'
-	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'airblade/vim-rooter'
-
-	" Coffeescript
-	" ------------
-	Plug 'kchmck/vim-coffee-script'
-
-	" GPG
-	" ---
-	Plug 'jamessan/vim-gnupg'
-
-	" Javascript
-	" ----------
-	Plug 'mtscout6/syntastic-local-eslint.vim'
-	Plug 'pangloss/vim-javascript'
-	Plug 'mxw/vim-jsx'
-
-	" PHP
-	" ---
-	Plug 'tokutake/twig-indent'
-	Plug 'evidens/vim-twig'
-
-	" Python
-	" ------
-	Plug 'Glench/Vim-Jinja2-Syntax'
-
-	" YAML
-	" ----
-	Plug 'chase/vim-ansible-yaml'
-	Plug 'stephpy/vim-yaml'
 call plug#end()
 
 
 
 " Plugin configuration
 " ====================
+
+" ALE
+" ---
+let g:ale_fixers = { 'javascript': ['eslint', 'prettier'] }
+
 
 " Closetag
 " --------
@@ -141,12 +117,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Gutentags
 " ---------
-let g:gutentags_tagfile = ".tags"
-
-
-" JSX
-" ---
-let g:jsx_ext_required = 0
+let g:gutentags_ctags_tagfile = ".tags"
 
 
 " Multiple cursors
@@ -169,15 +140,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " SuperTab
 " --------
 let g:SuperTabDefaultCompletionType = '<c-n>'
-
-
-" Syntastic
-" ---------
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'perlcritic', 'podchecker']
-let g:syntastic_perl_lib_path = [ './lib', './local/lib/perl5' ]
 
 
 
@@ -362,6 +324,31 @@ set pastetoggle=<F5>
 map <F8> <leader>c<space>
 vmap <F8> <leader>c<space>
 imap <F8> <esc><leader>c<space>
+
+
+" Toggle indentation with <F11>
+" -----------------------------
+function TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    set shiftwidth=2
+    set softtabstop=2
+    set expandtab
+  endif
+endfunction
+map <F11> mz:execute TabToggle()<CR>'z
+vmap <F11> mz:execute TabToggle()<CR>'z
+imap <F11> <esc>mz:execute TabToggle()<CR>'zi
+
+
+" Reformat file with <F12>
+" ------------------------
+map <F12> :ALEFix<cr>
+vmap <F12> :ALEFix<cr>
+imap <F12> <esc>:ALEFix<cr>i
 ```
 
 :tada:

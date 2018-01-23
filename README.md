@@ -15,11 +15,6 @@ ln -s git/dotvim/vim .vim
 
 # Install plugins
 vim +PlugInstall
-
-# Install some tools
-sudo aptitude install exuberant-ctags gcc libxml2-utils pylint tidy
-sudo gem install sass
-sudo npm install -g coffeelint csslint js-yaml jshint jsonlint less
 ```
 
 Plugins

@@ -4,11 +4,11 @@
 call plug#begin()
 	" Editor
 	" ------
+	Plug 'w0rp/ale'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'gregsexton/MatchTag'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'ervandew/supertab'
-	Plug 'scrooloose/syntastic'
 	Plug 'alvan/vim-closetag'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'garbas/vim-snipmate'
@@ -16,6 +16,7 @@ call plug#begin()
 		Plug 'MarcWeber/vim-addon-mw-utils'
 		Plug 'honza/vim-snippets'
 	Plug 'bronson/vim-trailing-whitespace'
+
 
 	" Git
 	" ---
@@ -41,12 +42,11 @@ call plug#begin()
 
 	" Javascript
 	" ----------
-	Plug 'mtscout6/syntastic-local-eslint.vim'
 	Plug 'pangloss/vim-javascript'
 	Plug 'mxw/vim-jsx'
 
 	" Kamailio
-	" ----------
+	" --------
 	Plug 'kamailio/vim-kamailio-syntax'
 
 	" PHP
@@ -68,6 +68,11 @@ call plug#end()
 
 " Plugin configuration
 " ====================
+
+" ALE
+" ---
+let g:ale_fixers = { 'javascript': ['eslint', 'prettier'] }
+
 
 " Closetag
 " --------
@@ -111,15 +116,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " SuperTab
 " --------
 let g:SuperTabDefaultCompletionType = '<c-n>'
-
-
-" Syntastic
-" ---------
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'perlcritic', 'podchecker']
-let g:syntastic_perl_lib_path = [ './lib', './local/lib/perl5' ]
 
 
 
@@ -304,3 +300,10 @@ set pastetoggle=<F5>
 map <F8> <leader>c<space>
 vmap <F8> <leader>c<space>
 imap <F8> <esc><leader>c<space>
+
+
+" Reformat file with <F12>
+" ------------------------
+map <F12> :ALEFix<cr>
+vmap <F12> :ALEFix<cr>
+imap <F12> <esc>:ALEFix<cr>i

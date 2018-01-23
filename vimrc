@@ -83,7 +83,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " Gutentags
 " ---------
-let g:gutentags_tagfile = ".tags"
+let g:gutentags_ctags_tagfile = ".tags"
 
 
 " JSX

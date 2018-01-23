@@ -302,6 +302,24 @@ vmap <F8> <leader>c<space>
 imap <F8> <esc><leader>c<space>
 
 
+" Toggle indentation with <F11>
+" -----------------------------
+function TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    set shiftwidth=2
+    set softtabstop=2
+    set expandtab
+  endif
+endfunction
+map <F11> mz:execute TabToggle()<CR>'z
+vmap <F11> mz:execute TabToggle()<CR>'z
+imap <F11> <esc>mz:execute TabToggle()<CR>'zi
+
+
 " Reformat file with <F12>
 " ------------------------
 map <F12> :ALEFix<cr>

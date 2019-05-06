@@ -60,11 +60,6 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
 
 
-" Gutentags
-" ---------
-let g:gutentags_ctags_tagfile = ".tags"
-
-
 " Multiple cursors
 " ----------------
 let g:multi_cursor_exit_from_visual_mode = 0
@@ -104,7 +99,6 @@ set scrolloff=3
 set showcmd
 set showmatch
 set tabpagemax=100
-set tags=./.tags;,./tags;
 set wildmenu
 set clipboard=
 
